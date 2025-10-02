@@ -1,134 +1,170 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Qualifica – RI (MVP) • Geração de Notas & Q&A</title>
-  <link rel="stylesheet" href="assets/styles.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Qualifica – RI (MVP) • Geração de Notas Devolutivas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
-  <div class="container">
-      <header class="hero">
-        <span class="badge">Qualifica – RI • MVP 2025-10-02 18:08</span>
+  <main>
+    <header class="hero">
+      <span class="hero__badge">Qualifica – RI • MVP estático</span>
+      <div>
         <h1>Qualificação registral mais célere, previsível e auditável</h1>
-        <p class="lead">
+        <p class="hero__lead">
           O Qualifica – RI entrega notas devolutivas e minutas aderentes à legislação federal (LRP e atos do CNJ), com linguagem técnica
-          padronizada e pronta para o Asgard. A plataforma opera com controle de perfis, logs por 12 meses, Q&amp;A com SLA e exportação em HTML/PDF/JSON,
-          reduzindo retrabalho e tempo de ciclo na análise de títulos.
+          padronizada e pronta para o Asgard. Controle de perfis, logs por 12 meses, Q&amp;A com SLA definido e exportação em
+          HTML/PDF/JSON reduzem o retrabalho e aceleram a análise de títulos.
         </p>
-        <div class="section" style="display:flex; gap:10px; flex-wrap:wrap;">
-          <button class="btn primary" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Testar agora</button>
-          <button class="btn" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Ver planos</button>
-          <span class="pill">Saídas prontas para o Asgard</span>
-          <span class="pill">SLA: 2 dias úteis · 8 horas úteis</span>
-          <span class="pill">Logs: 12 meses</span>
-        </div>
-      </header>
+      </div>
+      <div class="hero__cta">
+        <button class="button button--primary" type="button" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Testar agora</button>
+        <button class="button button--ghost" type="button" onclick="document.getElementById('planos').scrollIntoView({behavior:'smooth'})">Ver planos</button>
+      </div>
+      <div class="tagline-row">
+        <span class="pill">Saídas prontas para o Asgard</span>
+        <span class="pill">SLA: 2 dias úteis · 8 horas úteis</span>
+        <span class="pill">Logs e auditoria: 12 meses</span>
+      </div>
+    </header>
 
-      <section class="grid cols-3">
-        <div class="card">
+    <section class="section" aria-labelledby="feature-title">
+      <div class="section__header">
+        <div>
+          <h2 id="feature-title">Por que escritórios e cartórios adotam o Qualifica – RI</h2>
+          <p>Combina critérios normativos, roteiros operacionais e rastreabilidade ponta a ponta para garantir segurança jurídica na qualificação registral.</p>
+        </div>
+      </div>
+      <div class="grid grid--three">
+        <article class="card">
+          <div class="features__icon">🔐</div>
           <h3>Segurança e conformidade</h3>
-          <p class="muted" style="text-align: justify;">
-            Multi-tenant com isolamento lógico, criptografia em repouso e em trânsito, política de acesso por perfis e registro de operações.
-            O conteúdo é baseado em legislação federal aplicável, e a decisão registral permanece sob responsabilidade do delegatário.
-          </p>
-        </div>
-        <div class="card">
+          <p>Multi-tenant com isolamento lógico, criptografia em repouso e em trânsito, perfis de acesso e trilhas de auditoria. O conteúdo é baseado na legislação federal aplicável; a decisão registral permanece com o delegatário.</p>
+        </article>
+        <article class="card">
+          <div class="features__icon">⚡</div>
           <h3>Qualificação acelerada</h3>
-          <p class="muted" style="text-align: justify;">
-            Checklists gerais e específicos por ato, com geração de notas em um clique. Minutas padronizadas (quando o plano contempla) e
-            Q&amp;A com prazos objetivos reduzem o tempo de análise e o retrabalho operacional.
-          </p>
-        </div>
-        <div class="card">
+          <p>Checklists gerais e específicos por ato, geração de notas em um clique e minutas padronizadas (quando o plano contempla). Q&amp;A com SLA reduz retrabalho operacional.</p>
+        </article>
+        <article class="card">
+          <div class="features__icon">🔗</div>
           <h3>Integração e rastreabilidade</h3>
-          <p class="muted" style="text-align: justify;">
-            Exportação em HTML/PDF/JSON, webhooks e API para integração ao seu ecossistema. Histórico de gerações e atendimentos disponível por 12 meses.
-          </p>
+          <p>Exportação em HTML/PDF/JSON, webhooks e API para integrar ao seu ecossistema. Histórico de gerações e atendimentos disponível por 12 meses.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="demo" class="section" aria-labelledby="demo-title">
+      <div class="section__header">
+        <div>
+          <h2 id="demo-title">Demo interativa — Nota Devolutiva</h2>
+          <p>Selecione checklists, responda às perguntas e gere uma nota estruturada imediatamente. Nenhum dado é enviado a servidores.</p>
         </div>
-      </section>
+        <div class="pill">Selecionados: <span id="selection-count">0</span></div>
+      </div>
+      <div class="layout--split">
+        <section class="module" aria-label="Painel de entrada">
+          <div>
+            <div class="module__title">
+              <h3>Checklists disponíveis</h3>
+              <p class="module__subtitle">Escolha os blocos aplicáveis ao título que está sendo qualificado.</p>
+            </div>
+            <div id="checklist-chips" class="checklist-chips" role="group" aria-label="Checklists"></div>
+            <p id="selection-empty" class="question__help">Selecione ao menos um checklist para começar.</p>
+          </div>
+          <div class="module__title">
+            <h3>Opções de geração</h3>
+            <p class="module__subtitle">Aplique tratamentos automáticos na nota produzida.</p>
+          </div>
+          <div class="checkbox-group">
+            <label><input type="checkbox" id="option-strip" /> Remover &lt;strong&gt;/&lt;em&gt;</label>
+            <label><input type="checkbox" id="option-justify" checked /> Justificar parágrafos</label>
+          </div>
+          <div>
+            <div class="module__title">
+              <h3>Formulário dinâmico</h3>
+              <p class="module__subtitle">As perguntas se adaptam às respostas fornecidas.</p>
+            </div>
+            <div id="form-host" class="module__form"></div>
+          </div>
+          <div class="actions">
+            <button class="button button--primary" id="action-generate" type="button">Gerar Nota</button>
+            <button class="button" id="action-copy" type="button">Copiar</button>
+            <button class="button" id="action-export-html" type="button">Exportar HTML</button>
+            <button class="button" id="action-export-json" type="button">Exportar Respostas (JSON)</button>
+          </div>
+        </section>
+        <aside class="preview-panel" aria-live="polite">
+          <header>
+            <div>
+              <h3>Pré-visualização</h3>
+              <div class="preview-panel__meta">Renderização dinâmica</div>
+            </div>
+            <div class="preview-panel__meta">Gerado em: <span id="generated-at">—</span></div>
+          </header>
+          <div id="note-output" class="preview-panel__body note-output"></div>
+          <div class="preview-panel__footer">Este MVP não realiza upload de documentos. Copie o conteúdo para o Asgard ou exporte o HTML/JSON gerado.</div>
+        </aside>
+      </div>
+    </section>
 
-      <section id="demo" class="section">
-        <h2>Demo – Geração de Nota Devolutiva</h2>
-        <div class="grid cols-2">
-          <div class="card">
-            <div class="row">
-              <label class="label">Selecionar checklists</label>
-              <div>
-                <div id="checklist-select"></div>
-              </div>
-            </div>
-            <div class="row">
-              <label class="label">Opções</label>
-              <div style="display:flex; gap:12px; flex-wrap:wrap;">
-                <label><input type="checkbox" id="optStripStrong"> Remover &lt;strong&gt;/&lt;em&gt;</label>
-                <label><input type="checkbox" id="optJustify" checked> Justificar parágrafos</label>
-              </div>
-            </div>
-            <div class="hr"></div>
-            <div id="form-area"></div>
-            <div class="hr"></div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <button class="btn success" onclick="generateNote()">Gerar Nota</button>
-              <button class="btn small" onclick="copyOutput()">Copiar</button>
-              <button class="btn small" onclick="downloadHTML()">Exportar HTML</button>
-              <button class="btn small" onclick="downloadAnswers()">Exportar Respostas (JSON)</button>
-            </div>
-          </div>
-          <div class="card">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-              <h3>Pré‑visualização</h3>
-              <span class="muted">render dinâmico</span>
-            </div>
-            <div id="note" class="note-output"><p>Selecione ao menos um checklist e responda às perguntas. Em seguida, clique em “Gerar Nota”.</p></div>
-            <div class="footer">Observação: este é um protótipo MVP, sem uploads de documentos. Saídas podem ser copiadas e coladas no Asgard.</div>
-          </div>
+    <section id="planos" class="section" aria-labelledby="planos-title">
+      <div class="section__header">
+        <div>
+          <h2 id="planos-title">Planos</h2>
+          <p>Escolha o nível de automação que faz sentido para o seu cartório.</p>
         </div>
-      </section>
+      </div>
+      <div class="grid grid--three">
+        <article class="card pricing-card">
+          <h3>Essencial</h3>
+          <p>Notas devolutivas com base em checklists federais. Exportação HTML/PDF/JSON. Sem Q&amp;A.</p>
+          <strong>R$ 497/mês</strong>
+          <button class="button" type="button">Testar 7 dias</button>
+        </article>
+        <article class="card pricing-card">
+          <h3>Standard</h3>
+          <p>Tudo do Essencial + minutas/roteiros e Q&amp;A com SLA de 2 dias úteis (7 threads/mês).</p>
+          <strong>R$ 1.497/mês</strong>
+          <button class="button" type="button">Testar 7 dias</button>
+        </article>
+        <article class="card pricing-card">
+          <h3>Profissional</h3>
+          <p>Tudo do Standard + Q&amp;A com SLA de 8 horas úteis (fair-use).</p>
+          <strong>R$ 2.497/mês</strong>
+          <button class="button" type="button">Testar 7 dias</button>
+        </article>
+      </div>
+    </section>
 
-      <section id="planos" class="section">
-        <h2>Planos</h2>
-        <div class="grid cols-3">
-          <div class="card">
-            <h3>Essencial</h3>
-            <p class="muted">Notas Devolutivas a partir de checklists federais. Exportação HTML/PDF/JSON. Sem Q&amp;A.</p>
-            <p class="kpi">R$ 497/mês</p>
-            <button class="btn">Testar 7 dias</button>
-          </div>
-          <div class="card">
-            <h3>Standard</h3>
-            <p class="muted">Tudo do Essencial + minutas/roteiros e Q&amp;A com SLA de 2 dias úteis (7 threads/mês).</p>
-            <p class="kpi">R$ 1.497/mês</p>
-            <button class="btn">Testar 7 dias</button>
-          </div>
-          <div class="card">
-            <h3>Profissional</h3>
-            <p class="muted">Tudo do Standard + Q&amp;A com SLA de 8 horas úteis (fair‑use).</p>
-            <p class="kpi">R$ 2.497/mês</p>
-            <button class="btn">Testar 7 dias</button>
-          </div>
+    <section class="section" aria-labelledby="faq-title">
+      <div class="section__header">
+        <div>
+          <h2 id="faq-title">FAQ</h2>
+          <p>Perguntas frequentes sobre o escopo da versão MVP.</p>
         </div>
-      </section>
+      </div>
+      <div class="faq">
+        <article class="faq-item">
+          <h3>Base normativa</h3>
+          <p>Conteúdo alinhado à legislação federal aplicável (LRP e atos do CNJ). Peculiaridades estaduais serão incorporadas em versões futuras.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Responsabilidade</h3>
+          <p>As notas e minutas são apoio técnico. A decisão registral permanece com o delegatário competente.</p>
+        </article>
+      </div>
+    </section>
 
-      <section class="section">
-        <h2>FAQ</h2>
-        <div class="grid cols-2">
-          <div class="card">
-            <h3>Base normativa</h3>
-            <p class="muted" style="text-align: justify;">Conteúdo alinhado à legislação federal aplicável (LRP e atos do CNJ). Peculiaridades estaduais serão incorporadas em versões futuras.</p>
-          </div>
-          <div class="card">
-            <h3>Responsabilidade</h3>
-            <p class="muted" style="text-align: justify;">As notas e minutas são apoio técnico. A decisão registral permanece com o delegatário competente.</p>
-          </div>
-        </div>
-      </section>
+    <footer class="footer">
+      © 2025 Qualifica – RI • MVP estático para validação. Sem coleta de títulos ou upload de documentos.
+    </footer>
+  </main>
 
-      <footer class="section">
-        <div class="muted">© 2025 Qualifica – RI • MVP estático para validação. Sem coleta de títulos ou upload de documentos.</div>
-      </footer>
-    </div>
-
-  <script src="assets/app.js"></script>
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>
