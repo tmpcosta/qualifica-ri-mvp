@@ -446,7 +446,7 @@
 
     function downloadHTML() {
       const content = byId('note').innerHTML;
-      const tpl = `<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8"><title>Nota Devolutiva</title></head><body>{content}</body></html>`.replace('{{content}}', content);
+      const tpl = `<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8"><title>Nota Devolutiva</title></head><body>${content}</body></html>`;
       const blob = new Blob([tpl], {type:'text/html'});
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
