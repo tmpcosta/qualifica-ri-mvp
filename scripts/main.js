@@ -43,8 +43,24 @@ function setLoading(isLoading) {
   }
 }
 
+function initializeData(payload) {
+  state.data = payload || {};
+  const keys = Object.keys(state.data);
+  if (keys.length && state.selected.size === 0) {
+    state.selected.add(keys[0]);
+  }
+  renderChecklistChips();
+  renderForm();
+}
+
 function loadData() {
   setLoading(true);
+
+  if (window.__QUALIFICA_CHECKLISTS__) {
+    initializeData(window.__QUALIFICA_CHECKLISTS__);
+    return Promise.resolve();
+  }
+
   return fetch('data/checklists.json')
     .then((response) => {
       if (!response.ok) {
@@ -53,13 +69,7 @@ function loadData() {
       return response.json();
     })
     .then((payload) => {
-      state.data = payload;
-      const keys = Object.keys(payload);
-      if (keys.length && state.selected.size === 0) {
-        state.selected.add(keys[0]);
-      }
-      renderChecklistChips();
-      renderForm();
+      initializeData(payload);
     })
     .catch((error) => {
       elements.formHost.innerHTML = `<p class="question__help" style="color: var(--danger);">${error.message}</p>`;
