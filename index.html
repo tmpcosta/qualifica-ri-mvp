@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checklist Interativo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="branding">
+        <span class="logo">✓</span>
+        <div>
+          <h1>Checklist Interativo</h1>
+          <p>Organize cada etapa do seu processo com clareza e foco.</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="reset-progress" class="ghost-button" type="button">
+          Limpar progresso
+        </button>
+        <button id="toggle-theme" class="ghost-button" type="button">
+          Alternar tema
+        </button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar" aria-label="Etapas do checklist">
+        <div class="sidebar-header">
+          <h2>Etapas</h2>
+          <p>Selecione uma etapa para ver suas tarefas.</p>
+        </div>
+        <nav id="stage-list" class="stage-list"></nav>
+        <section class="progress-overview" aria-live="polite">
+          <h3>Resumo geral</h3>
+          <p>
+            <strong id="overall-completed">0</strong> de
+            <span id="overall-total">0</span> tarefas concluídas
+          </p>
+          <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+            <div id="overall-progress" class="progress-bar__fill"></div>
+          </div>
+        </section>
+      </aside>
+
+      <section class="content" aria-live="polite">
+        <header class="content-header">
+          <div>
+            <h2 id="stage-title">Selecione uma etapa</h2>
+            <p id="stage-description">Escolha uma etapa no menu ao lado para começar.</p>
+            <p id="stage-progress-summary" class="stage-progress" aria-live="polite">
+              0 de 0 tarefas concluídas
+            </p>
+          </div>
+          <div class="stage-actions">
+            <button id="mark-stage-complete" class="ghost-button" type="button" disabled>
+              Marcar tudo como concluído
+            </button>
+            <button id="mark-stage-pending" class="ghost-button" type="button" disabled>
+              Reabrir tarefas
+            </button>
+          </div>
+        </header>
+
+        <div class="filters">
+          <label class="search-field">
+            <span class="sr-only">Filtrar tarefas</span>
+            <input
+              id="task-filter"
+              type="search"
+              placeholder="Filtrar por palavras-chave"
+              aria-label="Filtrar tarefas"
+              disabled
+            />
+          </label>
+          <label class="toggle-pill">
+            <input id="show-only-pending" type="checkbox" disabled />
+            <span>Mostrar apenas pendentes</span>
+          </label>
+        </div>
+
+        <section id="task-list" class="task-list" aria-live="polite"></section>
+
+        <footer class="content-footer">
+          <h3>Adicionar tarefa personalizada</h3>
+          <p>Crie lembretes específicos para esta etapa do processo.</p>
+          <form id="custom-task-form" class="task-form" novalidate>
+            <div class="field-group">
+              <label for="custom-task-title">Título</label>
+              <input
+                id="custom-task-title"
+                name="title"
+                type="text"
+                placeholder="Ex.: Confirmar materiais"
+                required
+                disabled
+              />
+            </div>
+            <div class="field-group">
+              <label for="custom-task-notes">Notas adicionais</label>
+              <textarea
+                id="custom-task-notes"
+                name="notes"
+                rows="2"
+                placeholder="Detalhes ou links úteis"
+                disabled
+              ></textarea>
+            </div>
+            <button type="submit" class="primary-button" disabled>
+              Adicionar tarefa
+            </button>
+          </form>
+        </footer>
+      </section>
+    </main>
+
+    <template id="task-template">
+      <article class="task" data-task-id="">
+        <div class="task-main">
+          <label class="checkbox">
+            <input type="checkbox" />
+            <span class="checkbox__mark" aria-hidden="true"></span>
+            <div class="checkbox__label">
+              <span class="task-title"></span>
+              <span class="task-meta"></span>
+            </div>
+          </label>
+          <button class="icon-button" type="button" aria-expanded="false">
+            <span class="sr-only">Alternar detalhes</span>
+            ⌄
+          </button>
+        </div>
+        <div class="task-details" hidden>
+          <p class="task-description"></p>
+          <div class="task-actions">
+            <button class="ghost-button task-remove" type="button">
+              Remover tarefa
+            </button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="assets/app.js" type="module"></script>
+  </body>
+</html>
